@@ -50,7 +50,7 @@ def del_menu(cart, total_price):
         idx -= 1
         item = cart[idx]
         print(f"'{item['name']}'의 현재 수량: {item['quantity']}")
-        del_qty = get_valid_number_input("몇 개를 삭제하시겠습니까? : ", 1, item['quantity'])
+        del_qty = valid.get_valid_number_input("몇 개를 삭제하시겠습니까? : ", 1, item['quantity'])
         if del_qty:
             item['quantity'] -= del_qty
             if item['quantity'] == 0:
