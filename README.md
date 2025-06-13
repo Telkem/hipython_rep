@@ -60,6 +60,7 @@ Jupyter 기반 실습 노트북으로 구성되며, 최종적으로 **콘솔 키
 
  ## 🛠️ 사용 기술 (Tech Stack)
  - **Python 3.12.9** (기초 문법부터 NumPy까지)
+ - **Visual Studio Code**
  - **Jupyter Notebook**
  - **Git & GitHub**를 활용한 팀 협업
 
