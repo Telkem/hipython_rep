@@ -1,13 +1,12 @@
-# 📘 HiPython: Python 기초부터 실전까지
-### A Practical Guide to Python Fundamentals, Data Analysis, and a Real-World Kiosk Team Project
+# 📘 LG U+ WHY NOT SW 캠프 7기 – HiPython
+### Python 기초부터 데이터 분석, 실전 키오스크 프로젝트까지
 
 <hr>
 
 ## 🧾 개요 (Overview)
-**HiPython**은 Python 입문자가 기초 문법부터 실전 응용까지 체계적으로 학습할 수 있도록 구성된 시리즈입니다.
-Jupyter 기반 실습 노트북으로 구성되며, 최종적으로 **콘솔 키오스크 시스템 팀 프로젝트, 데이터 분석 기초 실습**까지 포함되어 있습니다.
-
->기초부터 실전까지, Python 실력을 쌓기 위한 포괄적 학습 여정입니다.
+이 레포지토리는 **LG U+ WHY NOT SW** 캠프 7기의 수업 과정을 정리한 개인 포트폴리오입니다.
+Python 기초부터 데이터 분석 입문, 그리고 팀과 함께한 키오스크 실전 프로젝트까지 학습 및 실습한 내용을 담고 있습니다.
+Jupyter 노트북 기반 실습과 실제 콘솔 환경 프로젝트를 통해 Python 전반에 대한 이해도를 높였습니다.
 
 <hr>
 
