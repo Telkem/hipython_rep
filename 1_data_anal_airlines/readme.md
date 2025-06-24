@@ -28,7 +28,7 @@
 
 ## 기술 스택
 
-* **Python 3.12.9 **
+* **Python 3.12.9**
 * **Pandas**
 * **Matplotlib (시각화)**
 
