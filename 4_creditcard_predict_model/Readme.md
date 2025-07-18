@@ -65,9 +65,6 @@
 
 본 프로젝트에서는 **Logistic Regression**, **Decision Tree**, **Random Forest**, **XGBoost** 등 다양한 분류 모델을 사용하여 사기 거래를 예측했습니다.
 
-**XGBoost 모델 평가 결과 (예시)**:
-(주피터 노트북 실행 결과에 따라 아래 내용을 채울 수 있습니다.)
-
 * **정확도(Accuracy)**: 0.999596...
 * **혼동 행렬(Confusion Matrix)**:
     ```
