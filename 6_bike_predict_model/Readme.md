@@ -39,11 +39,10 @@
     * `matplotlib`: 데이터 시각화
 
 ## 4. 프로젝트 구조
-.
-├── 39_bike대여량예측모델 - 테스트.ipynb  # Jupyter Notebook 파일
-└── data1/
-    └── bike-sharing-demand/
-        └── train.csv                 # 원본 데이터 파일
+- 39_bike대여량예측모델 - 테스트.ipynb  # Jupyter Notebook 파일
+- data1/
+    - bike-sharing-demand/
+        - train.csv                 # 원본 데이터 파일
 
 ## 5. 분석 및 모델링 과정
 
