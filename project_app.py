@@ -3,6 +3,8 @@ import streamlit as st
 img1 = 'https://i.ibb.co/YFwM64MH/1.jpg'
 img2 = 'https://ic.zigbang.com/ic/items/45726063/1.jpg?w=400&h=300&q=70&a=1'
 img3 = 'https://ic.zigbang.com/ic/items/45596346/1.jpg?w=400&h=300&q=70&a=1'
+
+homes = {}
 ##############################################################################
 
 st.markdown(
@@ -40,6 +42,21 @@ st.markdown(
     }}
     .st-key-home3::before{{
         background-image: url({img3});
+    }}
+    .stSidebar {{
+        display: flex;
+        flex-direction: column;
+        height: 100vh !important; /* 뷰포트 높이 100%로 설정하여 하단 고정 효과를 줍니다. */
+    }}
+    .st-key-fixed-buttons {{
+        display: flex;
+        margin-top: auto; /* 상단 여백을 최대로 설정하여 버튼을 하단으로 밀어냅니다. */
+        padding: 10px; /* 위아래 패딩을 하나로 통합 */
+        border-top: 1px solid #e0e0e0;
+        background-color: #f0f2f6; /* 사이드바 배경색과 동일하게 설정하여 자연스럽게 연결 */
+        position: sticky; /* 스크롤에 따라 하단에 고정 */
+        bottom: 0; /* 하단에서 0px 위치에 고정 */
+        z-index: 1000; /* 다른 요소 위로 올라오도록 설정 */
     }}
     </style>
     ''',
@@ -111,41 +128,77 @@ with st.sidebar.expander('상세 필터'):
     st.checkbox('엘리베이터')
     st.checkbox('역 근처')
     
-side_col1, side_col2 = st.sidebar.columns(2)
-
-with side_col1:
-    st.button('이전', width=500)
-with side_col2:
-    st.button('확인', width=500)
+with st.sidebar.container(key = 'fixed-buttons'):
+    side_col1, side_col2 = st.columns(2)
+    with side_col1:
+        st.button('이전', use_container_width=True)
+    with side_col2:
+        st.button('확인', use_container_width=True)
     
+
 ##############################################################################
 
 
 ##############################################################################
+def home_info(num ,header, point, address, standard):
+    with st.container(key='home' + str(num)):
+            st.header(header)
+            st.write(point)
+            st.write(address)
+            homes['home' + str(num)] = standard
+
+
+homes['home1'] = '거리'
+homes['home2'] = '가격'
+homes['home3'] = '치안'
+
+def show_homes(option):
+    num=1
+    with st.container(key='homes'):
+        if (option == '종합') | (option == '거리'):
+            home_info(
+                num,
+                '**매물1** :선택한 지역 1순위로 반영',
+                '매물의 특징: 거리가 가깝습니다!',
+                '서울 강남구, 20평, 방 3개, 보증금 1,000만원, 월세 45만원',
+                homes['home' + str(num)]
+            )
+        num += 1
+        if (option == '종합') | (option == '가격'):
+            home_info(
+                num,
+                '**매물2** :선택한 예산 1순위로 반영',
+                '매물의 특징: 가격이 저렴합니다!',
+                '서울 마포구, 15평, 방 1개, 보증금 500만원, 월세 30만원',
+                homes['home' + str(num)]
+            )
+        num += 1
+        if (option == '종합') | (option == '치안'):
+            home_info(
+                num,
+                '**매물3** :치안 1순위로 반영',
+                '매물의 특징: 치안이 좋습니다!',
+                '서울 관악구, 25평, 방 2개, 보증금 2,000만원, 월세 40만원',
+                homes['home' + str(num)]
+            )
+            
+            
 main_col1, main_col2, main_col3 ,main_col4 = st.columns(4)
 
 with main_col1:
-    st.button('종합')
+    all = st.button('종합')
 with main_col2:
-    st.button('가격')
+    cost = st.button('가격')
 with main_col3:
-    st.button('치안')
+    safety = st.button('치안')
 with main_col4:
-    st.button('거리')
-    
-    
-with st.container(key='homes'):
-    with st.container(key='home1'):
-        st.header('**매물1** :선택한 지역 1순위로 반영')
-        st.write('매물의 특징: 거리가 가깝습니다!')
-        st.write('서울 강남구, 20평, 방 3개, 보증금 1,000만원, 월세 45만원')
-        
-    with st.container(key='home2'):
-        st.header('**매물2** :선택한 예산 1순위로 반영')
-        st.write('매물의 특징: 가격이 저렴합니다!')
-        st.write('서울 마포구, 15평, 방 1개, 보증금 500만원, 월세 30만원')
-    
-    with st.container(key='home3'):
-        st.header('**매물3** :치안 1순위로 반영')
-        st.write('매물의 특징: 치안이 좋습니다!')
-        st.write('서울 관악구, 25평, 방 2개, 보증금 2,000만원, 월세 40만원')
+    distance = st.button('거리')
+
+if cost:
+    show_homes('가격')
+elif safety:
+    show_homes('치안')
+elif distance:
+    show_homes('거리')
+else:
+    show_homes('종합')
