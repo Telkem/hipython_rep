@@ -18,6 +18,17 @@ def make_anal_tab():
 #################################################
 st.title('스트림릿 앱 페이지 구성하기')
 
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"] {
+        width: 300px !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.sidebar.header('웰컴 메뉴')
 
 selected_menu = st.sidebar.selectbox(
